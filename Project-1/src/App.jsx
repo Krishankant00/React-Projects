@@ -15,7 +15,7 @@ function App() {
         
         </ul>
       </nav>
-      <div className='h-full w-[85%] bg-red-300'>
+      <div className='h-full w-[85%] bg-red-400'>
         
 
 
