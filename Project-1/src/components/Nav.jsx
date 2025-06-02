@@ -2,7 +2,7 @@
 
 export default function Nav() {
   return (
-    <nav className="w-[15%] h-full bg-zinc-100 flex flex-col items-center pt-5">
+    <nav className="w-[15%] h-full bg-zinc-200 flex flex-col items-center pt-5">
         <a
           className="py-2 px-3 border border-blue-300 rounded mb-3 text-blue-400"
           href=""
