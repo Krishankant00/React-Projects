@@ -13,12 +13,12 @@ export default function Nav() {
 
   return (
     <nav className="w-[15%] h-full bg-zinc-200 flex flex-col items-center pt-5">
-        <a
+        <Link to="/create"
           className="py-2 px-3 border border-blue-300 rounded mb-3 text-blue-400"
           href=""
         >
           Add new Product
-        </a>
+        </Link>
         
         <h1 className=" mb-3 w-[80%] font-semibold">Category Filter</h1>
       <div className=" w-[80%]">
