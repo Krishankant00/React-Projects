@@ -1,21 +1,89 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ProductContext } from "../utils/Context";
+import { nanoid } from "nanoid";
 
 function Create() {
-  useState[(title, settitle)] = useState("");
+  const [products, sertproducts] = useContext(ProductContext);
+
+  const [title, settitle] = useState("");
+  const [image, setimage] = useState("");
+  const [category, setcategory] = useState("");
+  const [price, setprice] = useState("");
+  const [description, setdescription] = useState("");
+
+  const AddProductHandler = (e) => {
+    e.preventDefault();
+
+    if (
+      title.trim().length < 5 ||
+      image.trim().length < 5 ||
+      category.trim().length < 3 ||
+      price.trim().length < 1 ||
+      description.trim().length < 5
+    ) {
+      alert("Enter valid input");
+      return;
+    }
+    const product = {
+      id: nanoid(),
+      image,
+      title,
+      category,
+      price,
+      description,
+    };
+    sertproducts([...products, product]);
+  };
+
   return (
-    <form className="flex flex-col items-center p-[5%] w-screen h-screen bg-zinc-600">
+    <form
+      onSubmit={AddProductHandler}
+      className="flex flex-col items-center p-[5%] w-screen h-screen "
+    >
       <h1 className="mb-5 w-1/2 text-3xl">Add new product</h1>
+
       <input
-        type="text"
-        placeholder="title"
-        className="text-2xl bg-zinc-100 rounded p-4 w-1/2 mb-3"
+        type="url"
+        placeholder="image"
+        className="text-1xl bg-zinc-200 rounded p-4 w-1/2 mb-3"
+        onChange={(e) => setimage(e.target.value)}
+        value={image}
       />
       <input
         type="text"
         placeholder="title"
-        className="text-2xl bg-zinc-100 rounded p-4 w-1/2 mb-3"
+        className="text-1xl bg-zinc-200 rounded p-4 w-1/2 mb-3"
         onChange={(e) => settitle(e.target.value)}
+        value={title}
       />
+      <div className="w-1/2 flex justify-between">
+        <input
+          type="text"
+          placeholder="category"
+          className="text-1xl bg-zinc-200 rounded p-4 w-[48%] mb-3"
+          onChange={(e) => setcategory(e.target.value)}
+          value={category}
+        />
+        <input
+          type="number"
+          placeholder="price"
+          className="text-1xl bg-zinc-200 rounded p-4 w-[48%] mb-3"
+          onChange={(e) => setprice(e.target.value)}
+          value={price}
+        />
+      </div>
+      <textarea
+        onChange={(e) => setdescription(e.target.value)}
+        placeholder="enter product description here.."
+        value={description}
+        className="text-1xl bg-zinc-200 rounded p-4 w-1/2 mb-3"
+      ></textarea>
+
+      <div className="w-1/2">
+        <button className="py-2 px-3 border border-blue-300 rounded mb-3 text-blue-400">
+          Add new Product
+        </button>
+      </div>
     </form>
   );
 }

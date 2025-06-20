@@ -14,9 +14,10 @@ export default function Context(props) {
       console.log(error);
     }
   };
+  console.log(products);
   useEffect(() => {
     getproducts();
-  },[]);
+  }, []);
 
   return (
     <ProductContext.Provider value={[products, setproducts]}>
