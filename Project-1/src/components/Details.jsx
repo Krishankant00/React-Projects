@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { useState } from "react";
 import { ProductContext } from "../utils/Context";
+import { toast } from "react-toastify";
 
 export default function Details() {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ export default function Details() {
     const filteredProducts = products.filter((p) => p.id != id);
     setproducts(filteredProducts);
     localStorage.setItem("products", JSON.stringify(filteredProducts));
+    toast.success("Product removed Successfully");
     navigate("/");
   };
   return product ? (
