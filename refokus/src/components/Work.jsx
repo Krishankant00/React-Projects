@@ -45,6 +45,9 @@ function Work() {
         <h1 className="text-[36vw] leading-none select-none font-medium ">
           work
         </h1>
+        <h2 className="text-xl text-zinc-500 font-semibold">
+          Web Design, Webflow Devlopment, Creative Devlopment
+        </h2>
         <div className="absolute top-0 w-full h-full">
           {images.map(
             (elem, index) =>
