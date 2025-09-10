@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Stripes from "./components/Stripes";
 import Work from "./components/Work";
 import Products from "./components/Products";
+import Marquees from "./components/Marquees";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Work />
       <Stripes />
       <Products />
+      <Marquees />
     </div>
   );
 }
